@@ -1,35 +1,27 @@
-//
-//  ViewController.swift
-//  swift-photos-10
-//
-//  Created by user on 2021/03/22.
-//
-
 import UIKit
 import Photos
 
 class ViewController: UIViewController, UICollectionViewDataSource {
     
-    private var allPhotos : PHFetchResult<PHAsset>?
-    private var imageManager : PHCachingImageManager!
-    
-    @IBOutlet weak var cellImage: UIImageView!
+    private var allPhotos : PHFetchResult<PHAsset>!
+    private var imageManager = PHCachingImageManager()
+    private var library = PHPhotoLibrary.shared()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCell else {
             return UICollectionViewCell()
         }
-//        cell.backgroundColor = UIColor.random()
-        let asset = self.allPhotos?.object(at: indexPath.item)
-        
-        cell.representedAssetIdentifier = asset?.localIdentifier
-        imageManager.requestImage(for: asset!, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            if cell.representedAssetIdentifier == asset?.localIdentifier {
-                self.cellImage.image = image
+        cell.backgroundColor = UIColor.random()
+        let asset = self.allPhotos.object(at: indexPath.item)
+       
+        cell.representedAssetIdentifier = asset.localIdentifier
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.cellImageView.image = image
             }
         })
         
@@ -39,12 +31,28 @@ class ViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.allPhotos = PHAsset.fetchAssets(with: nil)
         
     }
 
-
+    func save(image: UIImage) {
+        library.performChanges({
+            let _ = PHAssetChangeRequest.creationRequestForAsset(from: image)
+        }, completionHandler: nil)
+    }
+    
+    func delete(asset: PHAsset) {
+        library.performChanges({
+            PHAssetChangeRequest.deleteAssets([asset] as NSArray)
+        }, completionHandler: nil)
+    }
+    
+    func toggleFavoriteForAsset(asset: PHAsset) {
+        library.performChanges({
+            let request = PHAssetChangeRequest(for: asset)
+            request.isFavorite = !asset.isFavorite
+        }, completionHandler: nil)
+    }
 }
 
 extension CGFloat {

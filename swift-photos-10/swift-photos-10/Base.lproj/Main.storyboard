@@ -34,17 +34,6 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7NA-VM-VVV">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJB-6N-0fQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="UJB-6N-0fQ" firstAttribute="top" secondItem="7NA-VM-VVV" secondAttribute="top" id="36Z-e0-PXO"/>
-                                                <constraint firstItem="UJB-6N-0fQ" firstAttribute="leading" secondItem="7NA-VM-VVV" secondAttribute="leading" id="FtO-kd-4Pd"/>
-                                                <constraint firstAttribute="bottom" secondItem="UJB-6N-0fQ" secondAttribute="bottom" id="IC9-sM-tPI"/>
-                                                <constraint firstAttribute="trailing" secondItem="UJB-6N-0fQ" secondAttribute="trailing" id="sOe-lh-Lbz"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
@@ -63,9 +52,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photos" id="GRT-h1-VkC"/>
-                    <connections>
-                        <outlet property="cellImage" destination="UJB-6N-0fQ" id="9Y5-38-swT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
