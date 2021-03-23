@@ -8,14 +8,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     private var library = PHPhotoLibrary.shared()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return allPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = UIColor.random()
         let asset = self.allPhotos.object(at: indexPath.item)
        
         cell.representedAssetIdentifier = asset.localIdentifier
@@ -33,25 +32,18 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         self.allPhotos = PHAsset.fetchAssets(with: nil)
         
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            PHPhotoLibrary.shared().register(self)
+        default:
+            break
+        }
     }
+}
 
-    func save(image: UIImage) {
-        library.performChanges({
-            let _ = PHAssetChangeRequest.creationRequestForAsset(from: image)
-        }, completionHandler: nil)
-    }
-    
-    func delete(asset: PHAsset) {
-        library.performChanges({
-            PHAssetChangeRequest.deleteAssets([asset] as NSArray)
-        }, completionHandler: nil)
-    }
-    
-    func toggleFavoriteForAsset(asset: PHAsset) {
-        library.performChanges({
-            let request = PHAssetChangeRequest(for: asset)
-            request.isFavorite = !asset.isFavorite
-        }, completionHandler: nil)
+extension ViewController : PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        print("ok")
     }
 }
 
