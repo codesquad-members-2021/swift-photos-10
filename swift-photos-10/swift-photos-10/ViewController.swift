@@ -6,18 +6,33 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UICollectionViewDataSource {
+    
+    private var allPhotos : PHFetchResult<PHAsset>?
+    private var imageManager : PHCachingImageManager!
+    
+    @IBOutlet weak var cellImage: UIImageView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 40
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? UICollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = UIColor.random()
+//        cell.backgroundColor = UIColor.random()
+        let asset = self.allPhotos?.object(at: indexPath.item)
+        
+        cell.representedAssetIdentifier = asset?.localIdentifier
+        imageManager.requestImage(for: asset!, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset?.localIdentifier {
+                self.cellImage.image = image
+            }
+        })
+        
         return cell
     }
     
@@ -25,6 +40,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.allPhotos = PHAsset.fetchAssets(with: nil)
+        
     }
 
 

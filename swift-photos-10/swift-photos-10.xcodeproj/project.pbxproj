@@ -15,6 +15,7 @@
 		CEC05E1C26087B9200DE87C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC05E1A26087B9200DE87C6 /* LaunchScreen.storyboard */; };
 		CEC05E2726087B9200DE87C6 /* swift_photos_10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E2626087B9200DE87C6 /* swift_photos_10Tests.swift */; };
 		CEC05E3226087B9200DE87C6 /* swift_photos_10UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E3126087B9200DE87C6 /* swift_photos_10UITests.swift */; };
+		CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EA22609B08300DE87C6 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CEC05E2D26087B9200DE87C6 /* swift-photos-10UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-photos-10UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC05E3126087B9200DE87C6 /* swift_photos_10UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_photos_10UITests.swift; sourceTree = "<group>"; };
 		CEC05E3326087B9200DE87C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC05EA22609B08300DE87C6 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */,
 				CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */,
 				CEC05E1326087B8F00DE87C6 /* ViewController.swift */,
+				CEC05EA22609B08300DE87C6 /* CustomCell.swift */,
 				CEC05E1526087B8F00DE87C6 /* Main.storyboard */,
 				CEC05E1826087B9200DE87C6 /* Assets.xcassets */,
 				CEC05E1A26087B9200DE87C6 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				CEC05E1426087B8F00DE87C6 /* ViewController.swift in Sources */,
 				CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */,
+				CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */,
 				CEC05E1226087B8F00DE87C6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
