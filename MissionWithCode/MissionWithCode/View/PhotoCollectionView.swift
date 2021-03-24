@@ -20,7 +20,6 @@ class PhotoCollectionView: UICollectionView {
     private func configureCollectionView() {
         dataSource = self
         delegate = self
-        register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
 }
 
