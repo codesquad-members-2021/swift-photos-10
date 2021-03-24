@@ -7,8 +7,8 @@ class PhotoLibrary: NSObject, PHPhotoLibraryChangeObserver {
     private let imageManager = PHCachingImageManager()
     
     func requestImage(cell: CustomCell, indexPath: IndexPath) {
-        imageManager.requestImage(for: allPhotos![indexPath.row], targetSize: cell.intrinsicContentSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            if (image != nil) {
+        imageManager.requestImage(for: allPhotos![indexPath.row], targetSize: cell.intrinsicContentSize, contentMode: .aspectFill, options: nil, resultHandler: { cellImage, _ in
+            if let image = cellImage {
                 cell.cellImageView.image = image
             }
         })
