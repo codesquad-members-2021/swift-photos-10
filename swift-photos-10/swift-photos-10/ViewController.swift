@@ -12,29 +12,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.backgroundColor = UIColor.random()
         let asset = self.allPhotos.object(at: indexPath.item)
-       
         cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+        imageManager.requestImage(for: asset, targetSize: cell.intrinsicContentSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             if cell.representedAssetIdentifier == asset.localIdentifier {
                 cell.cellImageView.image = image
             }
         })
-        
         return cell
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allPhotos = PHAsset.fetchAssets(with: nil)
-        
         switch PHPhotoLibrary.authorizationStatus() {
         case .authorized:
-            PHPhotoLibrary.shared().register(self)
+            library.register(self)
         default:
             break
         }

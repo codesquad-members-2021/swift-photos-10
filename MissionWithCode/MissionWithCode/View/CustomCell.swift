@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class CustomCell : UICollectionViewCell {
-    var representedAssetIdentifier: String!
+    
     private(set) var cellImageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -16,10 +16,7 @@ class CustomCell : UICollectionViewCell {
     }
     
     private func configureImageView() {
-        self.addSubview(cellImageView)
-        let imageViewWidth = NSLayoutConstraint(item: cellImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
-        let imageViewHeight = NSLayoutConstraint(item: cellImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
-        cellImageView.addConstraints([imageViewWidth, imageViewHeight])
+        addSubview(cellImageView)
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
         cellImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         cellImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
