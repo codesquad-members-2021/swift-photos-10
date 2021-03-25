@@ -1,6 +1,6 @@
 import UIKit
 
-class DoodleViewController: UIViewController {
+class DoodleViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

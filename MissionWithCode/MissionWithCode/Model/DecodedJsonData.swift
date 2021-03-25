@@ -1,10 +1,8 @@
 import Foundation
 
 class DecodedJsonData {
-    var decodedData = [[String:Any]]()
-    var date = [String]()
-    var title = [String]()
-    var image = [String]()
+    private var decodedData = [[String:Any]]()
+    var imageData = [ImageData]()
     
     func decodeJasonData() {
         let path = Bundle.main.path(forResource: "doodle", ofType: "json")
@@ -13,9 +11,10 @@ class DecodedJsonData {
             decodedData = json
         }
         for eachData in decodedData {
-            image.append(eachData["image"] as! String)
-            title.append(eachData["title"] as! String)
-            date.append(eachData["date"] as! String)
+            let image = eachData["image"] as! String
+            let title = eachData["title"] as! String
+            let date = eachData["date"] as! String
+            imageData.append(ImageData(image: image, title: title, date: date))
         }
     }
 }

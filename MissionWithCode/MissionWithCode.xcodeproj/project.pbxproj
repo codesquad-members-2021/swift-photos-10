@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7104BDA5260C4B1500EC2661 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7104BDA4260C4B1500EC2661 /* doodle.json */; };
 		7104BDAA260C4B2D00EC2661 /* DecodedJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */; };
+		7104BDAF260C4E0500EC2661 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104BDAE260C4E0500EC2661 /* ImageData.swift */; };
 		71F345DF260B28B500D9F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345DE260B28B500D9F9B4 /* AppDelegate.swift */; };
 		71F345E1260B28B500D9F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345E0260B28B500D9F9B4 /* SceneDelegate.swift */; };
 		71F345E3260B28B500D9F9B4 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345E2260B28B500D9F9B4 /* PhotoViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		7104BDA4260C4B1500EC2661 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
 		7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedJsonData.swift; sourceTree = "<group>"; };
+		7104BDAE260C4E0500EC2661 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		71F345DB260B28B500D9F9B4 /* MissionWithCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissionWithCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F345DE260B28B500D9F9B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71F345E0260B28B500D9F9B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				71F34614260B28EB00D9F9B4 /* PhotoLibrary.swift */,
 				7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */,
+				7104BDAE260C4E0500EC2661 /* ImageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				71F345E3260B28B500D9F9B4 /* PhotoViewController.swift in Sources */,
 				71F345DF260B28B500D9F9B4 /* AppDelegate.swift in Sources */,
 				7104BDAA260C4B2D00EC2661 /* DecodedJsonData.swift in Sources */,
+				7104BDAF260C4E0500EC2661 /* ImageData.swift in Sources */,
 				71F3462D260B374900D9F9B4 /* DoodleViewController.swift in Sources */,
 				71F34628260B296F00D9F9B4 /* CustomCell.swift in Sources */,
 				71F345E1260B28B500D9F9B4 /* SceneDelegate.swift in Sources */,
