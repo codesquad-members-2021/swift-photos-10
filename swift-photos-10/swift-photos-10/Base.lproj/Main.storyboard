@@ -38,7 +38,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="klP-iS-f80"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="18m-RG-snh"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -52,6 +52,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photos" id="GRT-h1-VkC"/>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="5hm-zH-YlX" id="TX8-pt-Krd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

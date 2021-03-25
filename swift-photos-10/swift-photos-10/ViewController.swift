@@ -1,65 +1,37 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class ViewController: UIViewController {
     
-    private var allPhotos : PHFetchResult<PHAsset>!
-    private var imageManager = PHCachingImageManager()
-    private var library = PHPhotoLibrary.shared()
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    private var photoAlbum = PhotoLibrary()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        PHPhotoLibrary.shared().register(self)
+    }
+}
+
+extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allPhotos.count
+        return self.photoAlbum.allPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCell else {
-            return UICollectionViewCell()
-        }
-        let asset = self.allPhotos.object(at: indexPath.item)
-       
-        cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            if cell.representedAssetIdentifier == asset.localIdentifier {
-                cell.cellImageView.image = image
-            }
-        })
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        self.photoAlbum.requestImage(cell: cell, indexPath: indexPath)
         return cell
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.allPhotos = PHAsset.fetchAssets(with: nil)
-        
-        switch PHPhotoLibrary.authorizationStatus() {
-        case .authorized:
-            PHPhotoLibrary.shared().register(self)
-        default:
-            break
-        }
     }
 }
 
 extension ViewController : PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
-        print("ok")
-    }
-}
-
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
-        )
+        DispatchQueue.main.async {
+            if let changes = changeInstance.changeDetails(for: self.photoAlbum.allPhotos) {
+                self.photoAlbum.updateFetchResult(updateResult: changes.fetchResultAfterChanges)
+                self.photoCollectionView.reloadData()
+            }
+        }
     }
 }
