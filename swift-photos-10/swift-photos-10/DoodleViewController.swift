@@ -18,17 +18,6 @@ class DoodleViewController : UICollectionViewController {
         image.urlDataToImage()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return image.imageArray.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-
-        return cell
-    }
-    
     @objc func updateImage(notification: Notification) {
         if let count = notification.userInfo?["image"] as? Int {
             DispatchQueue.main.async {
@@ -40,4 +29,27 @@ class DoodleViewController : UICollectionViewController {
     @objc func doneButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+extension DoodleViewController: UICollectionViewDelegateFlowLayout {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return image.imageArray.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let imageSet = image.imageArray
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.backgroundColor = .red
+        for image in imageSet {
+            cell.cellImageView.image = image
+        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+                return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            }
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+                return CGSize(width: 110, height: 50)
+        }
 }
