@@ -10,6 +10,9 @@ class DoodleViewController : UICollectionViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Doodles"
         self.collectionView.backgroundColor = .darkGray
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        self.navigationItem.rightBarButtonItem?.tintColor = .blue
+        
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
         NotificationCenter.default.addObserver(self, selector: #selector(updateImage(notification:)), name: ImageManager.imageNoti, object: image)
         image.urlDataToImage()
@@ -32,5 +35,9 @@ class DoodleViewController : UICollectionViewController {
                 self.collectionView.insertItems(at: [IndexPath(row: count-1, section: 0)])
             }
         }
+    }
+    
+    @objc func doneButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
