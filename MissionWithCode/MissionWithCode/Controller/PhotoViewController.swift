@@ -4,7 +4,7 @@ import Photos
 class PhotoViewController: UIViewController {
     
     private var photoCollectionView = PhotoCollectionView()
-    private var moveNextButton: UIBarButtonItem = {
+    private lazy var moveNextButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonTouched(_:)))
         return button
     }()
@@ -75,7 +75,8 @@ extension PhotoViewController {
     }
     
     @objc private func buttonTouched(_ sender: Any) {
-        
+//        let navigationView = UINavigationController(rootViewController: DoodleViewController())
+//        present(navigationView, animated: true, completion: nil)
     }
 }
 

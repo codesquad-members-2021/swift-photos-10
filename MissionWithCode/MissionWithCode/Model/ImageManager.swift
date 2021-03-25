@@ -1,10 +1,16 @@
 import Foundation
+import UIKit
 
-class DecodedJsonData {
-    private var decodedData = [[String:Any]]()
-    var imageData = [ImageData]()
+class ImageManager {
     
-    func decodeJasonData() {
+    private var decodedData = [[String:Any]]()
+    private var imageData = [ImageData]()
+    
+    init() {
+        decodeJasonData()
+    }
+    
+    private func decodeJasonData() {
         let path = Bundle.main.path(forResource: "doodle", ofType: "json")
         if let data = try? String(contentsOfFile: path!).data(using: .utf8) {
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
@@ -16,5 +22,17 @@ class DecodedJsonData {
             let date = eachData["date"] as! String
             imageData.append(ImageData(image: image, title: title, date: date))
         }
+    }
+    
+    func urlDataToImage() -> UIImage {
+        var doodleImage = UIImage()
+        for data in imageData {
+            let url = URL(string: data.image)
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                doodleImage = UIImage(data: data!)!
+            }
+        }
+        return doodleImage
     }
 }
