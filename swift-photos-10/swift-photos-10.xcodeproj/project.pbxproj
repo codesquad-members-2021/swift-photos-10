@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7822BE260C30DD0068B3CE /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */; };
 		CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */; };
 		CEC05E1226087B8F00DE87C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */; };
 		CEC05E1426087B8F00DE87C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E1326087B8F00DE87C6 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 		CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EA22609B08300DE87C6 /* CustomCell.swift */; };
 		CEC05EAF260B772D00DE87C6 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */; };
 		CEC05EB7260B785200DE87C6 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */; };
+		CEC05EC2260C259E00DE87C6 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = CEC05EC1260C259E00DE87C6 /* doodle.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
 		CEC05E0C26087B8F00DE87C6 /* swift-photos-10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-photos-10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		CEC05EA22609B08300DE87C6 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
 		CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
+		CEC05EC1260C259E00DE87C6 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,11 @@
 		CEC05E0E26087B8F00DE87C6 /* swift-photos-10 */ = {
 			isa = PBXGroup;
 			children = (
+				CEC05EC1260C259E00DE87C6 /* doodle.json */,
 				CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */,
 				CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */,
 				CEC05E1326087B8F00DE87C6 /* ViewController.swift */,
+				CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */,
 				CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */,
 				CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */,
 				CEC05EA22609B08300DE87C6 /* CustomCell.swift */,
@@ -242,6 +248,7 @@
 			files = (
 				CEC05E1C26087B9200DE87C6 /* LaunchScreen.storyboard in Resources */,
 				CEC05E1926087B9200DE87C6 /* Assets.xcassets in Resources */,
+				CEC05EC2260C259E00DE87C6 /* doodle.json in Resources */,
 				CEC05E1726087B8F00DE87C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +276,7 @@
 			files = (
 				CEC05E1426087B8F00DE87C6 /* ViewController.swift in Sources */,
 				CEC05EAF260B772D00DE87C6 /* PhotoCollectionView.swift in Sources */,
+				CE7822BE260C30DD0068B3CE /* DoodleViewController.swift in Sources */,
 				CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */,
 				CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */,
 				CEC05EB7260B785200DE87C6 /* PhotoLibrary.swift in Sources */,

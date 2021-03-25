@@ -51,7 +51,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5hm-zH-YlX" secondAttribute="bottom" id="yHh-HF-lDm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="GRT-h1-VkC"/>
+                    <navigationItem key="navigationItem" title="Photos" id="GRT-h1-VkC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="KM4-et-TsN">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="AS0-4S-ST9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoCollectionView" destination="5hm-zH-YlX" id="TX8-pt-Krd"/>
                     </connections>
@@ -59,6 +65,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="943.07692307692309" y="73.93364928909952"/>
+        </scene>
+        <!--Doodle View Controller-->
+        <scene sceneID="hly-WE-wVo">
+            <objects>
+                <collectionViewController id="RUH-Oj-ebA" customClass="DoodleViewController" customModule="swift_photos_10" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VBg-CJ-4lD">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="26n-vf-DNd">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h0I-Xk-wue">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7p4-j2-SBk">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="RUH-Oj-ebA" id="FaH-DS-i0S"/>
+                            <outlet property="delegate" destination="RUH-Oj-ebA" id="HRV-CV-VpC"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BII-Zs-N5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768" y="74"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0WT-K6-Pze">
@@ -80,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
