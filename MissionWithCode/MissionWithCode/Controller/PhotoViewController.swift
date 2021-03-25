@@ -4,7 +4,11 @@ import Photos
 class PhotoViewController: UIViewController {
     
     private var photoCollectionView = PhotoCollectionView()
-    
+    private var moveNextButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonTouched(_:)))
+        return button
+    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -16,6 +20,7 @@ class PhotoViewController: UIViewController {
     private func initSubViews() {
         view.addSubview(photoCollectionView)
         configurePhotoCelloctionView()
+        navigationItem.leftBarButtonItem = self.moveNextButton
     }
     
     private func addObserver() {
@@ -67,6 +72,10 @@ extension PhotoViewController {
                 }
             }
         }
+    }
+    
+    @objc private func buttonTouched(_ sender: Any) {
+        
     }
 }
 

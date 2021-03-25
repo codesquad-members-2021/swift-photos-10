@@ -19,7 +19,6 @@
 		71F34623260B295600D9F9B4 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F34622260B295600D9F9B4 /* PhotoCollectionView.swift */; };
 		71F34628260B296F00D9F9B4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F34627260B296F00D9F9B4 /* CustomCell.swift */; };
 		71F3462D260B374900D9F9B4 /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F3462C260B374900D9F9B4 /* DoodleViewController.swift */; };
-		71F34632260B37C500D9F9B4 /* MoveToNextControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F34631260B37C500D9F9B4 /* MoveToNextControllerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		71F34622260B295600D9F9B4 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
 		71F34627260B296F00D9F9B4 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		71F3462C260B374900D9F9B4 /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
-		71F34631260B37C500D9F9B4 /* MoveToNextControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToNextControllerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +160,6 @@
 			children = (
 				71F34622260B295600D9F9B4 /* PhotoCollectionView.swift */,
 				71F34627260B296F00D9F9B4 /* CustomCell.swift */,
-				71F34631260B37C500D9F9B4 /* MoveToNextControllerButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71F34632260B37C500D9F9B4 /* MoveToNextControllerButton.swift in Sources */,
 				71F34615260B28EB00D9F9B4 /* PhotoLibrary.swift in Sources */,
 				71F34623260B295600D9F9B4 /* PhotoCollectionView.swift in Sources */,
 				71F345E3260B28B500D9F9B4 /* PhotoViewController.swift in Sources */,
