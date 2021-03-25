@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PHPhotoLibrary.shared().register(self)
-        
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {

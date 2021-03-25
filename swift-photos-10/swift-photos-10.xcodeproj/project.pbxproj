@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717CEE48260C5ED500658C7D /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CEE47260C5ED500658C7D /* ImageData.swift */; };
+		717CEE4D260C5EEE00658C7D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CEE4C260C5EEE00658C7D /* ImageManager.swift */; };
 		CE7822BE260C30DD0068B3CE /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */; };
 		CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */; };
 		CEC05E1226087B8F00DE87C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		717CEE47260C5ED500658C7D /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		717CEE4C260C5EEE00658C7D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
 		CEC05E0C26087B8F00DE87C6 /* swift-photos-10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-photos-10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC05E0F26087B8F00DE87C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */,
 				CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */,
 				CEC05EA22609B08300DE87C6 /* CustomCell.swift */,
+				717CEE47260C5ED500658C7D /* ImageData.swift */,
+				717CEE4C260C5EEE00658C7D /* ImageManager.swift */,
 				CEC05E1526087B8F00DE87C6 /* Main.storyboard */,
 				CEC05E1826087B9200DE87C6 /* Assets.xcassets */,
 				CEC05E1A26087B9200DE87C6 /* LaunchScreen.storyboard */,
@@ -277,10 +283,12 @@
 				CEC05E1426087B8F00DE87C6 /* ViewController.swift in Sources */,
 				CEC05EAF260B772D00DE87C6 /* PhotoCollectionView.swift in Sources */,
 				CE7822BE260C30DD0068B3CE /* DoodleViewController.swift in Sources */,
+				717CEE4D260C5EEE00658C7D /* ImageManager.swift in Sources */,
 				CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */,
 				CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */,
 				CEC05EB7260B785200DE87C6 /* PhotoLibrary.swift in Sources */,
 				CEC05E1226087B8F00DE87C6 /* SceneDelegate.swift in Sources */,
+				717CEE48260C5ED500658C7D /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
