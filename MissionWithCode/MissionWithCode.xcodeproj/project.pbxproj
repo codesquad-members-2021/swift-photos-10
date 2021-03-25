@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7104BDA5260C4B1500EC2661 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7104BDA4260C4B1500EC2661 /* doodle.json */; };
+		7104BDAA260C4B2D00EC2661 /* DecodedJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */; };
 		71F345DF260B28B500D9F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345DE260B28B500D9F9B4 /* AppDelegate.swift */; };
 		71F345E1260B28B500D9F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345E0260B28B500D9F9B4 /* SceneDelegate.swift */; };
 		71F345E3260B28B500D9F9B4 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F345E2260B28B500D9F9B4 /* PhotoViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7104BDA4260C4B1500EC2661 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
+		7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedJsonData.swift; sourceTree = "<group>"; };
 		71F345DB260B28B500D9F9B4 /* MissionWithCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissionWithCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F345DE260B28B500D9F9B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71F345E0260B28B500D9F9B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		71F345DD260B28B500D9F9B4 /* MissionWithCode */ = {
 			isa = PBXGroup;
 			children = (
+				7104BDA4260C4B1500EC2661 /* doodle.json */,
 				71F34613260B28DD00D9F9B4 /* View */,
 				71F34612260B28D800D9F9B4 /* Controller */,
 				71F34611260B28D200D9F9B4 /* Model */,
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				71F34614260B28EB00D9F9B4 /* PhotoLibrary.swift */,
+				7104BDA9260C4B2D00EC2661 /* DecodedJsonData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 			files = (
 				71F345EB260B28B600D9F9B4 /* LaunchScreen.storyboard in Resources */,
 				71F345E8260B28B600D9F9B4 /* Assets.xcassets in Resources */,
+				7104BDA5260C4B1500EC2661 /* doodle.json in Resources */,
 				71F345E6260B28B500D9F9B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +305,7 @@
 				71F34623260B295600D9F9B4 /* PhotoCollectionView.swift in Sources */,
 				71F345E3260B28B500D9F9B4 /* PhotoViewController.swift in Sources */,
 				71F345DF260B28B500D9F9B4 /* AppDelegate.swift in Sources */,
+				7104BDAA260C4B2D00EC2661 /* DecodedJsonData.swift in Sources */,
 				71F3462D260B374900D9F9B4 /* DoodleViewController.swift in Sources */,
 				71F34628260B296F00D9F9B4 /* CustomCell.swift in Sources */,
 				71F345E1260B28B500D9F9B4 /* SceneDelegate.swift in Sources */,
