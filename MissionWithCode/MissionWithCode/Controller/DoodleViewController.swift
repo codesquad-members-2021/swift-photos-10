@@ -14,7 +14,7 @@ class DoodleViewController: UICollectionViewController {
     }
 }
 
-extension DoodleViewController {
+extension DoodleViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
