@@ -75,8 +75,9 @@ extension PhotoViewController {
     }
     
     @objc private func buttonTouched(_ sender: Any) {
-//        let navigationView = UINavigationController(rootViewController: DoodleViewController())
-//        present(navigationView, animated: true, completion: nil)
+        let doodleView = DoodleViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let navigationView = UINavigationController(rootViewController: doodleView)
+        present(navigationView, animated: true, completion: nil)
     }
 }
 
