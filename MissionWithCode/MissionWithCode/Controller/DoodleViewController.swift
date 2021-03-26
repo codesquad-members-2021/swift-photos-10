@@ -3,6 +3,8 @@ import UIKit
 class DoodleViewController: UICollectionViewController {
     
     private var imageManager = ImageManager()
+    private var selectedImage: UIImage!
+    private let app = UIApplication.shared.delegate as! AppDelegate
     private lazy var dismissButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissbuttonTouched(_:)))
         return button
@@ -11,6 +13,7 @@ class DoodleViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSelfView()
+        setUplongPressGesture()
     }
     
     private func setUpSelfView() {
@@ -19,6 +22,11 @@ class DoodleViewController: UICollectionViewController {
         navigationItem.title = "Doodle"
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.identifier)
         navigationItem.rightBarButtonItem = self.dismissButton
+    }
+    
+    private func setUplongPressGesture() {
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(longGesturebuttonToucehd(_:)))
+        collectionView.addGestureRecognizer(gesture)
     }
 }
 
@@ -51,7 +59,27 @@ extension DoodleViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: -@obj Action
 extension DoodleViewController {
-    @objc func dismissbuttonTouched(_ sender: Any) {
+    
+    @objc func dismissbuttonTouched(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func longGesturebuttonToucehd(_ gesture: UILongPressGestureRecognizer) {
+        let menuController = UIMenuController.shared
+        let menuItem = UIMenuItem(title: "Save", action: #selector(saveItemTabbed))
+        menuController.menuItems = [menuItem]
+        
+        if gesture.state != .began { return }
+        let location = gesture.location(in: collectionView)
+        guard let indexPath = collectionView.indexPathForItem(at: location), let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else { return }
+        cell.becomeFirstResponder()
+        
+        menuController.showMenu(from: cell, rect: collectionView.layoutAttributesForItem(at: indexPath)!.bounds)
+        selectedImage = cell.cellImageView.image
+    }
+    
+    @objc func saveItemTabbed() {
+        app.photoManager.addImage(image: selectedImage)
         self.dismiss(animated: true, completion: nil)
     }
 }

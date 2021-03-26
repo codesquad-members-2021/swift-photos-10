@@ -5,6 +5,7 @@ class CustomCell : UICollectionViewCell {
     
     private(set) var cellImageView = UIImageView()
     private(set) static var identifier = "customcell"
+    override var canBecomeFirstResponder: Bool { true }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

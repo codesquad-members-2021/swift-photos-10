@@ -4,12 +4,12 @@ import Photos
 class PhotoCollectionView: UICollectionView {
     
     private var flowLayout = UICollectionViewFlowLayout()
-    private var photoManager = PhotoLibrary()
+    private let app = UIApplication.shared.delegate as! AppDelegate
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: flowLayout)
         configureCollectionView()
-        PHPhotoLibrary.shared().register(photoManager)
+        PHPhotoLibrary.shared().register(app.photoManager)
     }
     
     required init?(coder: NSCoder) {
@@ -30,13 +30,13 @@ extension PhotoCollectionView: UICollectionViewDataSource, UICollectionViewDeleg
     
     //Adjust Counts of Cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoManager.allPhotos!.count
+        return app.photoManager.allPhotos!.count
     }
     
     // ReusableCell && CellBackgroundColor && ImageManager
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.identifier, for: indexPath) as! CustomCell
-        photoManager.requestImage(cell: cell, indexPath: indexPath)
+        app.photoManager.requestImage(cell: cell, indexPath: indexPath)
         return cell
     }
     

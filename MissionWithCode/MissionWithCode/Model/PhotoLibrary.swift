@@ -19,6 +19,12 @@ class PhotoLibrary: NSObject, PHPhotoLibraryChangeObserver {
         allPhotos = changed.fetchResultAfterChanges
         NotificationCenter.default.post(name: .assetChanged, object: self, userInfo: ["changed":changed])
     }
+    
+    func addImage(image: UIImage) {
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        }, completionHandler: nil)
+    }
 }
 
 extension Notification.Name {
