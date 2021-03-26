@@ -65,11 +65,12 @@ extension DoodleViewController {
     }
     
     @objc func longGesturebuttonToucehd(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state != .began { return }
+        
         let menuController = UIMenuController.shared
         let menuItem = UIMenuItem(title: "Save", action: #selector(saveItemTabbed))
         menuController.menuItems = [menuItem]
         
-        if gesture.state != .began { return }
         let location = gesture.location(in: collectionView)
         guard let indexPath = collectionView.indexPathForItem(at: location), let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else { return }
         cell.becomeFirstResponder()
