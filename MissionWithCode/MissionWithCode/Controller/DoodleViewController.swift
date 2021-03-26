@@ -3,6 +3,10 @@ import UIKit
 class DoodleViewController: UICollectionViewController {
     
     private var imageManager = ImageManager()
+    private lazy var dismissButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissbuttonTouched(_:)))
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +18,7 @@ class DoodleViewController: UICollectionViewController {
         collectionView.backgroundColor = .darkGray
         navigationItem.title = "Doodle"
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.identifier)
+        navigationItem.rightBarButtonItem = self.dismissButton
     }
 }
 
@@ -40,6 +45,13 @@ extension DoodleViewController: UICollectionViewDelegateFlowLayout {
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: 110, height: 50)
         }
+}
+
+//MARK: -@obj Action
+extension DoodleViewController {
+    @objc func dismissbuttonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
