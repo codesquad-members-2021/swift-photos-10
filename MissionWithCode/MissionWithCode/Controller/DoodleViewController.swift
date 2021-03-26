@@ -1,7 +1,9 @@
 import UIKit
 
 class DoodleViewController: UICollectionViewController {
-
+    
+    private var imageManager = ImageManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSelfView()
@@ -11,18 +13,25 @@ class DoodleViewController: UICollectionViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .darkGray
         navigationItem.title = "Doodle"
+        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.identifier)
     }
 }
 
+//MARK: -CollectionView && Cells
 extension DoodleViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imageManager.imageData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.backgroundColor = .systemRed
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.identifier, for: indexPath) as! CustomCell
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: self.imageManager.urlToImage(from: indexPath.row)), let data = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                cell.cellImageView.image = UIImage(data: data)
+            }
+        }
         return cell
     }
     

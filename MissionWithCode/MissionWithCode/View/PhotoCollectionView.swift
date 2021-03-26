@@ -20,6 +20,7 @@ class PhotoCollectionView: UICollectionView {
     private func configureCollectionView() {
         dataSource = self
         delegate = self
+        register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.identifier)
     }
 }
 
@@ -34,8 +35,7 @@ extension PhotoCollectionView: UICollectionViewDataSource, UICollectionViewDeleg
     
     // ReusableCell && CellBackgroundColor && ImageManager
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.identifier, for: indexPath) as! CustomCell
         photoManager.requestImage(cell: cell, indexPath: indexPath)
         return cell
     }

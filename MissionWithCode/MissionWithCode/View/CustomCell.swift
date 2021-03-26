@@ -4,6 +4,7 @@ import UIKit
 class CustomCell : UICollectionViewCell {
     
     private(set) var cellImageView = UIImageView()
+    private(set) static var identifier = "customcell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

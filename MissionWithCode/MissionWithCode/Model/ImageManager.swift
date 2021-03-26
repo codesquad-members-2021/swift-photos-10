@@ -4,7 +4,7 @@ import UIKit
 class ImageManager {
     
     private var decodedData = [[String:Any]]()
-    private var imageData = [ImageData]()
+    private(set) var imageData = [ImageData]()
     
     init() {
         decodeJasonData()
@@ -24,15 +24,7 @@ class ImageManager {
         }
     }
     
-    func urlDataToImage() -> UIImage {
-        var doodleImage = UIImage()
-        for data in imageData {
-            let url = URL(string: data.image)
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                doodleImage = UIImage(data: data!)!
-            }
-        }
-        return doodleImage
+    func urlToImage(from index: Int) -> String {
+        return imageData[index].image
     }
 }
