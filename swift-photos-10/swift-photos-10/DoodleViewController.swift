@@ -20,17 +20,6 @@ class DoodleViewController : UICollectionViewController {
         
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateImage(notification:)), name: ImageManager.imageNoti, object: image)
-        
-        image.urlDataToImage()
-    }
-    
-    @objc func updateImage(notification: Notification) {
-        if let count = notification.userInfo?["image"] as? Int {
-            DispatchQueue.main.async {
-                self.collectionView.insertItems(at: [IndexPath(row: count-1, section: 0)])
-            }
-        }
     }
     
     @objc func closeButtonPressed() {
@@ -55,6 +44,7 @@ class DoodleViewController : UICollectionViewController {
     @objc func saveImage(){
         if let image = clickedCell.cellImageView.image {
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 
@@ -62,15 +52,17 @@ class DoodleViewController : UICollectionViewController {
 
 extension DoodleViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return image.imageArray.count
+        return image.imageData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageSet = image.imageArray
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.backgroundColor = .red
-        for image in imageSet {
-            cell.cellImageView.image = image
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: self.image.urlToImage(from: indexPath.row)), let data = try? Data(contentsOf: url) else { return }
+                        DispatchQueue.main.async {
+                            cell.cellImageView.image = UIImage(data: data)
+                        }
         }
         return cell
     }

@@ -19,7 +19,6 @@
 		CEC05E2726087B9200DE87C6 /* swift_photos_10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E2626087B9200DE87C6 /* swift_photos_10Tests.swift */; };
 		CEC05E3226087B9200DE87C6 /* swift_photos_10UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05E3126087B9200DE87C6 /* swift_photos_10UITests.swift */; };
 		CEC05EA32609B08300DE87C6 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EA22609B08300DE87C6 /* CustomCell.swift */; };
-		CEC05EAF260B772D00DE87C6 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */; };
 		CEC05EB7260B785200DE87C6 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */; };
 		CEC05EC2260C259E00DE87C6 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = CEC05EC1260C259E00DE87C6 /* doodle.json */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		CEC05E3126087B9200DE87C6 /* swift_photos_10UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_photos_10UITests.swift; sourceTree = "<group>"; };
 		CEC05E3326087B9200DE87C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEC05EA22609B08300DE87C6 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
 		CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
 		CEC05EC1260C259E00DE87C6 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +116,6 @@
 				CEC05E1126087B8F00DE87C6 /* SceneDelegate.swift */,
 				CEC05E1326087B8F00DE87C6 /* ViewController.swift */,
 				CE7822BD260C30DD0068B3CE /* DoodleViewController.swift */,
-				CEC05EAE260B772D00DE87C6 /* PhotoCollectionView.swift */,
 				CEC05EB6260B785200DE87C6 /* PhotoLibrary.swift */,
 				CEC05EA22609B08300DE87C6 /* CustomCell.swift */,
 				717CEE47260C5ED500658C7D /* ImageData.swift */,
@@ -281,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEC05E1426087B8F00DE87C6 /* ViewController.swift in Sources */,
-				CEC05EAF260B772D00DE87C6 /* PhotoCollectionView.swift in Sources */,
 				CE7822BE260C30DD0068B3CE /* DoodleViewController.swift in Sources */,
 				717CEE4D260C5EEE00658C7D /* ImageManager.swift in Sources */,
 				CEC05E1026087B8F00DE87C6 /* AppDelegate.swift in Sources */,

@@ -4,9 +4,8 @@ import UIKit
 class ImageManager {
     
     private var decodedData = [[String:Any]]()
-    private var imageData = [ImageData]()
-    private(set) var imageArray = [UIImage]()
-    static var imageNoti = Notification.Name.init("image")
+    private(set) var imageData = [ImageData]()
+    
     init() {
         decodeJasonData()
     }
@@ -25,17 +24,7 @@ class ImageManager {
         }
     }
     
-    func urlDataToImage() {
-        print("url")
-        DispatchQueue.global().async {
-            for data in self.imageData {
-                let url = URL(string: data.image!)!
-                if let data = try? Data(contentsOf: url) {
-                    let image = UIImage(data: data)!
-                    self.imageArray.append(image)
-                    NotificationCenter.default.post(name: ImageManager.imageNoti, object: self,userInfo: ["image": self.imageArray.count])
-                }
-            }
+    func urlToImage(from index: Int) -> String {
+            return imageData[index].image
         }
-    }
 }
