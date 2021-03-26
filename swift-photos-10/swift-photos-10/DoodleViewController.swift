@@ -5,16 +5,23 @@ import UIKit
 class DoodleViewController : UICollectionViewController {
     
     private var image = ImageManager()
+    private var clickedCell : CustomCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Doodles"
         self.collectionView.backgroundColor = .darkGray
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonPressed))
         self.navigationItem.rightBarButtonItem?.tintColor = .blue
         
+        let longTouchGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTouched(gesture:)))
+        longTouchGesture.minimumPressDuration = 0.3
+        collectionView.addGestureRecognizer(longTouchGesture)
+        
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateImage(notification:)), name: ImageManager.imageNoti, object: image)
+        
         image.urlDataToImage()
     }
     
@@ -26,9 +33,31 @@ class DoodleViewController : UICollectionViewController {
         }
     }
     
-    @objc func doneButtonPressed() {
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @objc func longTouched(gesture: UIGestureRecognizer) {
+        let point = gesture.location(in: collectionView)
+        guard let indexPath = self.collectionView.indexPathForItem(at: point)
+        else {
+            return
+        }
+        let cell = self.collectionView.cellForItem(at: indexPath) as! CustomCell
+        self.clickedCell = cell
+        cell.becomeFirstResponder()
+        
+        let savedMenuItem = UIMenuItem(title: "Save", action: #selector(saveImage))
+        UIMenuController.shared.menuItems = [savedMenuItem]
+        UIMenuController.shared.showMenu(from: collectionView, rect: cell.frame)
+    }
+    
+    @objc func saveImage(){
+        if let image = clickedCell.cellImageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
+
 }
 
 extension DoodleViewController: UICollectionViewDelegateFlowLayout {
@@ -45,6 +74,7 @@ extension DoodleViewController: UICollectionViewDelegateFlowLayout {
         }
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
                 return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             }
